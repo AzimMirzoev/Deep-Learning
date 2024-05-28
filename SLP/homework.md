@@ -51,3 +51,14 @@ print("MLP Classifier - Loss: {}, Accuracy: {}".format(mlp_loss, mlp_accuracy))
 plt.scatter(x_train[:, 0], x_train[:, 1], c=y_train, marker='.')
 plt.title("Train data distribution")
 plt.show()
+
+
+# Training data
+```
+Training data, also known as training dataset, refers to a set of examples used ot train a machine,
+learning model. It oncsists of input data points along with their corresponding output labels or target
+values. The machine learning modle learns pattersn and relationships from the training data model
+ to learn and improve its performance. It should be representative of the real-world scenarios that the model will
+encoutner during inference. 
+
+```
