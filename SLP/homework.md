@@ -62,3 +62,135 @@ values. The machine learning modle learns pattersn and relationships from the tr
 encoutner during inference. 
 
 ```
+
+
+# Keras and tf.keras
+
+```
+Keras is an open source deep learning library wirtten in Python.
+Keras is popular because it made easier to use all the mathematical formuals of
+tensorflow. Before, we must had used the Thean and PyTorch to make simple MLP.
+
+```
+
+```
+import tensorflow as tf
+model = tf.keras.Sequantial()
+```
+
+# Deep learning Model life-cycle
+
+1. Define the model
+2. Compiler the model
+3. Fit the model
+4. Evaluate the model
+5. Make predictions
+
+
+### 1) Defining the model
+
+```
+    Defining the model requires first selecting the type of model you need and then chosing the architecture or
+network topology.
+
+
+From an API perspective, this involes defining the layers of the model, configuring each layer with a numnber
+of nodes and activation function, and connneting the layers together into a cohesive model.
+
+!!! MODEL CAN BE DEFINED EAITHER WITH THE SEQUENTIAL API OR THE FUNCTIONAL API !!!
+
+```
+
+### 2) Compile the model
+
+```
+    Compiling the modle requires first selecting a loos function that you want to optimize such as mean squared
+error or cross-entropy.
+
+It also requires that you select and alogrithm to perform the optimization preocedure, typically SGD or ADAM.
+
+
+From API persepctive, this involves calling a function to compile the model with chosen configuration which will
+prepare approriate data structure required for the efficient use of the model you defined.
+
+
+```
+
+### 3) Fit the model
+
+```
+    Fitting the model requires that you first select the training configuration, such as the number of epochs and
+the bach_size.
+
+From API perspective, this involes calling a function to perform the training process.
+
+```
+
+### 4) Make a prediction
+
+```
+    Making a prediction is the final step in the life cydle. It is why we wanted the model in the first place. 
+
+```
+
+
+
+# Sequantial Mdel API (SIMPLE)
+
+```
+    It is refered as sequantial because it is the most easiest. You define your model one by one.
+
+```
+
+EX:
+
+```
+from tensorflow.keras import Sequantial
+from tensorflow.keras.layers import Dense
+
+#define the model
+model = Sequantial()
+model.add(Dense(10, input_shape=(8,))) # accepts 8 inputs
+model.add(Dense(1))
+
+
+```
+
+
+# Functional model API
+
+Complex but more flexible. In involves explicitly connecting the output of one layer to the input of another layer. Each connection is specified. 
+
+Firs, an input layer muse be defined via the Input class, and the shape of an input sample is specified. We mst 
+retain a reference to the input layer when defining the model. 
+
+```
+x_in = Input(shape=(8,))
+```
+Next a fully connectd layer can be conneced to the input by calling the layer and passing the input layer.
+
+```
+x = Dense(10)(x_in)
+```
+
+We can connect to the output layer with the same manner. 
+
+```
+x_out = Dense(1)(x)
+```
+
+Full example
+
+```
+fron tensorflow.keras import Model
+from tensorflow.keras import Input
+from tensorflow.keras.layers improt Dense
+
+x_in = Input(shape=(8,))
+x = Dense(10)(x_in)
+x_out = Dense(1)(x)
+
+model = Model(inputs = x_in, outputs=x_out)
+
+
+```
