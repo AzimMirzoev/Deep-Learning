@@ -191,6 +191,5 @@ x = Dense(10)(x_in)
 x_out = Dense(1)(x)
 
 model = Model(inputs = x_in, outputs=x_out)
-
-
 ```
+
